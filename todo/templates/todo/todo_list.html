@@ -9,15 +9,21 @@
 <body>
     <h1>things i need to do</h1>
     <!-- double curly brackets template variable syntax, recognised by django as python variables/code -->
-    {{ items }}
+    <!-- {{ items }} -->
 
     <table>
     <!-- same syntax for running python functions as flask -->
     {% for item in items %}
     <tr>
-        <td>{{ item.name }}</td>
-        <td>{{ item.done }}</td>
+        {% if item.done %}
+            <td><strike>{{ item.name }}</strike></td>
+        {% else %}
+            {{ item.name }}
+        {% endif %}
     </tr>
+    <!-- in the event that a class/table does not have any data, the "empty" function will proc-->
+    {% empty %}
+    <tr><td>You have nothing to do.</td></tr>
     {% endfor %}
     </table>
 </body>
