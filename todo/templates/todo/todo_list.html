@@ -8,5 +8,17 @@
 </head>
 <body>
     <h1>things i need to do</h1>
+    <!-- double curly brackets template variable syntax, recognised by django as python variables/code -->
+    {{ items }}
+
+    <table>
+    <!-- same syntax for running python functions as flask -->
+    {% for item in items %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.done }}</td>
+    </tr>
+    {% endfor %}
+    </table>
 </body>
 </html>
