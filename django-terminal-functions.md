@@ -20,6 +20,7 @@ migrations django's way of turning python code into database operations, basical
 ###### 3 key python terminal commands to manage migrations
 - python3 manage.py makemigrations --dry-run
     - when new models have been made/changed, this command needs to be run without the "--dry-run" tag
+    - basically creates the necessary files for a created model/s to become a database item/table
 - python3 manage.py showmigrations
     - lists current apps to be migrated into project, including some stock django apps
 - python3 manage.py migrate --plan
