@@ -14,3 +14,9 @@ python3 manage.py runserver
 
 ##### creates a django "app" called "todo"
 python3 manage.py startapp todo
+
+##### migrations
+migrations django's way of turning python code into database operations, basically mimics running raw SQL commands in the terminal by writing python code.
+###### 3 key python terminal commands to manage migrations
+python3 manage.py makemigrations --dry-run
+
