@@ -9,6 +9,12 @@
 <body>
     <h1>Add an item</h1>
     <form method="POST" action="add">
+        <!-- this tag below is specific to django -->
+        <!-- it is mandatory for form submission when using django -->
+        <!-- randomly generated unique value, attached to form on submit. -->
+        <!-- "cross site request forgery token" -->
+        <!-- it prevents another source from adding a submission via this form/method -->
+        {% csrf_token %}
         <div>
             <p>
                 <label for="id_name">Name: </label>
