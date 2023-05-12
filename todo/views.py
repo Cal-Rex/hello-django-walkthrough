@@ -21,3 +21,7 @@ def get_todo_list(request):
     # the context variable is passed into the the render return so now it is being
     # parsed into the todo_list.html template where the data can be accessed by a user
     return render(request, "todo/todo_list.html", context)
+
+
+def add_item(request):
+    return render(request, "todo/add_item.html")

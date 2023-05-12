@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from todo.views import get_todo_list
+# any new templates made need to be imported here like a library!
+from todo.views import get_todo_list, add_item
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_todo_list, name='get_todo_list')
+    # add new pages' path here, you need to first specify what the path on the link is
+    # then you need to call the function written in views.py
+    # then name the path appropriately
+    path('', get_todo_list, name='get_todo_list'),
+    path('add', add_item, name='add')
 ]
