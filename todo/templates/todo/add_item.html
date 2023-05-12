@@ -15,27 +15,30 @@
         <!-- "cross site request forgery token" -->
         <!-- it prevents another source from adding a submission via this form/method -->
         {% csrf_token %}
-        <div>
-            <p>
-                <label for="id_name">Name: </label>
-                <!--  the name attribute is what we use to reference this field in our view function -->
-                <!-- the id attribute is used to identify it on the page/style with css etc. -->
-                <input type="text" id="id_name" name="item_name">
-            </p>
-        </div>
-        <div>
-            <p>
-                <label for="id_name">Done: </label>
-                <input type="checkbox" id="id_done" name="done">
-            </p>
-        </div>
+        <!-- .as_p renders form fields in paragraphs -->
+        <!-- .as_table renders form in a table format -->
+        {{ form.as_p }}
         <div>
             <p>
             <button type="submit">Add Item</button>
             </p>
         </div>
     </form>
-
+    <!-- OLD FORM DATA, can be used instead of the python template, but could potentially cause errors in database -->
+        <!-- <div> -->
+            <!-- <p> -->
+                <!-- <label for="id_name">Name: </label> -->
+                <!--  the name attribute is what we use to reference this field in our view function -->
+                <!-- the id attribute is used to identify it on the page/style with css etc. -->
+                <!-- <input type="text" id="id_name" name="item_name"> -->
+            <!-- </p> -->
+        <!-- </div>
+        <div>
+            <p>
+                <label for="id_name">Done: </label>
+                <input type="checkbox" id="id_done" name="done">
+            </p>
+        </div> -->
     
 </body>
 </html>
