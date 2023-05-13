@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 # any new templates made need to be imported here like a library!
-from todo.views import get_todo_list, add_item
+from todo.views import get_todo_list, add_item, edit_item
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,10 @@ urlpatterns = [
     # then you need to call the function written in views.py
     # then name the path appropriately
     path('', get_todo_list, name='get_todo_list'),
-    path('add', add_item, name='add')
+    path('add', add_item, name='add'),
+    # angular bracket tag is important here:
+    # It is the mechanism by which the item ID 
+    # makes its way from links or forms in our html templates.
+    # Through the URL and into the views.py which expects it as a parameter.
+    path('edit/<item_id>', edit_item, name='edit')
 ]

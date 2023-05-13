@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a todo item</title>
+</head>
+<body>
+    <h1>Edit an item</h1>
+    <!-- the form for edit has the following changes compared to add_item.html's form -->
+    <!-- the action="" in the form tag is removed, because we are not adding a new item -->
+    <form method="POST">
+        {% csrf_token %}
+        <!-- .as_p renders form fields in paragraphs -->
+        <!-- .as_table renders form in a table format -->
+        {{ form.as_p }}
+        <div>
+            <p>
+            <button type="submit">Update Item</button>
+            </p>
+        </div>
+    </form>
+    <!-- OLD FORM DATA, can be used instead of the python template, but could potentially cause errors in database -->
+        <!-- <div> -->
+            <!-- <p> -->
+                <!-- <label for="id_name">Name: </label> -->
+                <!--  the name attribute is what we use to reference this field in our view function -->
+                <!-- the id attribute is used to identify it on the page/style with css etc. -->
+                <!-- <input type="text" id="id_name" name="item_name"> -->
+            <!-- </p> -->
+        <!-- </div>
+        <div>
+            <p>
+                <label for="id_name">Done: </label>
+                <input type="checkbox" id="id_done" name="done">
+            </p>
+        </div> -->
+    
+</body>
+</html>

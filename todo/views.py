@@ -1,5 +1,5 @@
 # imports django shortcuts, the render function is what is used to render html templates
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 # imports Item class from models.py, 
 # starting the library your pulling from with a "."
 # indicates it it found locally
@@ -65,3 +65,34 @@ def add_item(request):
         'form': form
     }
     return render(request, "todo/add_item.html", context)
+
+
+# updating an item
+def edit_item(request, item_id):
+    # the variable searches for an object in the first parameter (Item)
+    # which has been treated like an object thanks to the python method
+    # "get_object_or_404"
+    # then takes the second parameter as that object's id Key's value
+    # and that objects value is given by the Item that is printed on the
+    # html template, which is parsed to this method via the URL
+    # stated with angular brackets in urls.py
+    item = get_object_or_404(Item, id=item_id)
+    # for the edit form, updating method is almost identical to the
+    # method to adding items.
+    # the difference here, is that an "instance" parameter is added to
+    # the "ItemForm" handler inside the "form" variable
+    # which has now targeted that specific database entry to update.
+    if request.method == "POST":
+        form = ItemForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('get_todo_list')
+    # generates the same form as add_item function
+    # EXCEPT - the instance parametr loads all of the details
+    # into the fields of the form by calling on the "item"
+    # variable established above
+    form = ItemForm(instance=item)
+    context = {
+        'form': form
+    }
+    return render(request, "todo/edit_item.html", context)
