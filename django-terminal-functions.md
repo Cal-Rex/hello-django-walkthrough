@@ -30,3 +30,20 @@ migrations django's way of turning python code into database operations, basical
     - admin for this repo: calrex
     - password: crunchyroll password
 
+##### Installing Coverage
+Coverage is a tool that shows how much of the code in the project has actually been tested.
+it can be installed in the terminal:
+    - pip3 install coverage
+
+this can then be utilised in the terminal with the following command:
+    - coverage run --source=FOLDER manage.py test
+    - in this instance, it should be:
+        - coverage run --source=todo manage.py test
+It will then run the tests and store a report. the report can then be accessed with the following command:
+    - coverage report
+to get more specific data from your report, you can look at a fully interactive HTML version of the report
+with the following command:
+    - coverage html
+This generates a folder in the project called htmlcov
+it can then be viewed by using the standard viwing html console command:
+    - python3 -m http.server

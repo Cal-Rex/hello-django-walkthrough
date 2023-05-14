@@ -16,5 +16,11 @@ class TestModels(TestCase):
         # as we did not specify a boolean value in the above parameters
         self.assertFalse(item.done)
 
+    # checks to see if the name value of the name field is a string value
+    def test_string_is_name(self):
+        item = Item.objects.create(name='test Todo Item')
+        # checks to see if the value of "item" is a string
+        # and that it matches the original input
+        self.assertEqual(str(item), 'Test Todo Item')
        
     
