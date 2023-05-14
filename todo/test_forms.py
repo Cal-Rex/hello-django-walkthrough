@@ -37,6 +37,10 @@ class TestItemForm(TestCase):
 
 
     def test_fields_meta_confirmed(self):
+        # no parameter given inside the ItemFrom 
+        # as it's testing the form as a whole
         form = ItemForm()
+        # assertEqual check to see if the Meta values for the table
+        # established in forms.py equate to there values
         self.assertEqual(form.Meta.fields, ['name', 'done'])
 
