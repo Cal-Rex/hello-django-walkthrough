@@ -47,3 +47,11 @@ with the following command:
 This generates a folder in the project called htmlcov
 it can then be viewed by using the standard viwing html console command:
     - python3 -m http.server
+
+#### deploying on Heroku
+    Unless using the code institute template, Heroku needs to be installed into the project via the command line. this can be done by google searching "install heroku CLI" 
+        - you can use the code snippet to install the CLI in the browser-based gitpod environment, even though it says it's specifically for linux
+        - once installed, you can log into heroku in the terminal by using:
+            - heroku login -i
+        - enter username and password
+            - because of 2FA/MFA, the password is set your API key on heroku
