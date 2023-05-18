@@ -1,7 +1,11 @@
+# Ignores all files with a sqlite3 extension. just like a database searchh using * as wildcard
+*.sqlite3
 core.Microsoft*
 core.mongo*
 core.python*
 env.py
+# "Then I'll also add any pycache directories which contain compiled Python code.
+# As they'll be created every time the app is run anyway. And we don't need to track them."
 __pycache__/
 *.py[cod]
 node_modules/
