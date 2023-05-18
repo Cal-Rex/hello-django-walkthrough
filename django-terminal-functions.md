@@ -94,5 +94,14 @@ it can then be viewed by using the standard viwing html console command:
     to utilise these commands you would use commands as such:
         - git push origin main
         - git push heroku main
+
+
+#### Creating the external Database
+- go to heroku and create a new app with a unique name.
+- add the DATABASE_URL config Var
+    - go to settings
+    - click "reveal config vars"
+    - add a config var called "DATABASE_URL".
+        - paste the ElephantSQL database URL as the value
     
     
