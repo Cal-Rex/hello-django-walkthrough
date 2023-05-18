@@ -48,6 +48,28 @@ This generates a folder in the project called htmlcov
 it can then be viewed by using the standard viwing html console command:
     - python3 -m http.server
 
+#### Installing a database external of Heroku
+    - once deployed, Heroku will use an Ephemeral file system, meaning that any time it is closed or redeployed, all files are deleted and recreated on the next iteration
+    - this means databases get wiped
+    - to mitigate this, psycopg2 is installed to connect to a postGres database to keep the database extarnal from the Heroku deployment
+    - a package called Gunicorn (green unicorn) will also need to be installed to replace the development server once the app is deployed (acts as the webserver for the app)
+
+#### installing psycopg2
+    needed to use postGREs database functionality
+    command to install psygopg2:
+        - pip3 install psycopg2-binary
+
+#### installing Green unicorn
+    - pip3 install gunicorn
+
+#### creating a requirements.txt
+    - this file tells heroku what packages to install every time the app starts up
+    - once all necessary packages above have been installed, use the following command to create the requirements.txt file:
+    - pip3 freeze --local > requirements.txt
+
+
+
+
 #### deploying on Heroku
     Unless using the code institute template, Heroku needs to be installed into the project via the command line. this can be done by google searching "install heroku CLI" 
         - you can use the code snippet to install the CLI in the browser-based gitpod environment, even though it says it's specifically for linux
