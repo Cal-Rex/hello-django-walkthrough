@@ -67,9 +67,6 @@ it can then be viewed by using the standard viwing html console command:
     - once all necessary packages above have been installed, use the following command to create the requirements.txt file:
     - pip3 freeze --local > requirements.txt
 
-
-
-
 #### deploying on Heroku
     Unless using the code institute template, Heroku needs to be installed into the project via the command line. this can be done by google searching "install heroku CLI" 
         - you can use the code snippet to install the CLI in the browser-based gitpod environment, even though it says it's specifically for linux
@@ -77,3 +74,25 @@ it can then be viewed by using the standard viwing html console command:
             - heroku login -i
         - enter username and password
             - because of 2FA/MFA, the password is set your API key on heroku
+    
+    ##### Creating an app on heroku
+        use command:
+         - heroku apps:create APPNAME --region eu
+            - remove --region if you want data server to default to united states
+
+#### using Git
+    - when an app is created in heroku, it automatically creates a code repository that we can push our code changes to
+    - to get the remote urls for the Git repo on heroku:
+        - git remote -v
+            - v for verbose
+    - this will display the 2 git repos for the project, the one on heroku, and the one native on gitpod
+        - the one on gitpod/hub is origin
+        - heroku is heroku
+    - each one has 2 key remote urls
+        - one to fetch code from the repo
+        - one to push code to the repo
+    to utilise these commands you would use commands as such:
+        - git push origin main
+        - git push heroku main
+    
+    
