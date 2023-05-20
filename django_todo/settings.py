@@ -26,13 +26,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ucsd=yf3kp7+2tmyc2g$hxu_&)k=v+yd717k#7#^0ob6l))8)g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # allowed host is the domain name of the project, in this instance, 
 # it is the site that will host the project on heroku, 
 # which can be found under "domains" in the project, or, 
 # if you click the "open app" button 
-ALLOWED_HOSTS = ['my-first-deployed-django-app.herokuapp.com']
+ALLOWED_HOSTS = ['my-first-deployed-django-app.herokuapp.com', '8000-calrex-hellodjangowalkt-aa1kifn3z0z.ws-eu97.gitpod.io']
 
 
 # Application definition
