@@ -61,6 +61,10 @@ it can then be viewed by using the standard viwing html console command:
 
 #### installing Green unicorn
     - pip3 install gunicorn
+    - creat a file called "Procfile" (no extension) and enter the following code:
+        - web: gunicorn django_todo.wsgi:application
+            - this code tells gunicorn to run the project using the wsgi module
+            - this allows it to handle http requests like runserver does in the local environment
 
 #### creating a requirements.txt
     - this file tells heroku what packages to install every time the app starts up
