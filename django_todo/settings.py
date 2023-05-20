@@ -32,7 +32,7 @@ DEBUG = False
 # it is the site that will host the project on heroku, 
 # which can be found under "domains" in the project, or, 
 # if you click the "open app" button 
-ALLOWED_HOSTS = ['https://git.heroku.com/my-first-deployed-django-app.git', 'localhost']
+ALLOWED_HOSTS = ['https://my-first-deployed-django-app.herokuapp.com', 'localhost']
 
 
 # Application definition
