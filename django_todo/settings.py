@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-ucsd=yf3kp7+2tmyc2g$hxu_&)k=v+yd717k#7#^0ob6l))8)g')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # allowed host is the domain name of the project, in this instance, 
 # it is the site that will host the project on heroku, 
