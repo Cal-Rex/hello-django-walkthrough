@@ -23,7 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ucsd=yf3kp7+2tmyc2g$hxu_&)k=v+yd717k#7#^0ob6l))8)g'
+# SECRET_KEY = 'django-insecure-ucsd=yf3kp7+2tmyc2g$hxu_&)k=v+yd717k#7#^0ob6l))8)g'
+# _____________________________________________________________________
+# sets the secret key at operating system level, instead of in the code
+# the second paramter is used if there is no SECRET_KEY specified in env.py
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-ucsd=yf3kp7+2tmyc2g$hxu_&)k=v+yd717k#7#^0ob6l))8)g')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -32,8 +36,12 @@ DEBUG = False
 # it is the site that will host the project on heroku, 
 # which can be found under "domains" in the project, or, 
 # if you click the "open app" button 
-ALLOWED_HOSTS = ['my-first-deployed-django-app.herokuapp.com', '8000-calrex-hellodjangowalkt-aa1kifn3z0z.ws-eu97.gitpod.io']
-
+# ALLOWED_HOSTS = ['my-first-deployed-django-app.herokuapp.com', '8000-calrex-hellodjangowalkt-aa1kifn3z0z.ws-eu97.gitpod.io']
+# ____________________________________________________________
+# alternative ALLOWED HOSTS that pull from os and not from code
+# HEROKU_NAME's value is the url the app runs from via heroku, it's listed as a key value pair in the config vars
+# to make it work
+ALLOWED_HOSTS = [os.envrion.get('HEROKU_HOSTNAME')]
 
 # Application definition
 # any apps created have to be listed in this list variable!
