@@ -41,7 +41,7 @@ DEBUG = True
 # alternative ALLOWED HOSTS that pull from os and not from code
 # HEROKU_NAME's value is the url the app runs from via heroku, it's listed as a key value pair in the config vars
 # to make it work
-ALLOWED_HOSTS = [os.envrion.get('HEROKU_HOSTNAME')]
+ALLOWED_HOSTS = ['my-first-deployed-django-app.herokuapp.com']
 
 # Application definition
 # any apps created have to be listed in this list variable!
