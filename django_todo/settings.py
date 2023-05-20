@@ -46,7 +46,7 @@ DEBUG = development
 # to make it work
 # ___________________________________________________________
 if development:
-    ALLOWED_HOSTS = ['8000-calrex-hellodjangowalkt-aa1kifn3z0z.ws-eu97.gitpod.io/']
+    ALLOWED_HOSTS = ['8000-calrex-hellodjangowalkt-aa1kifn3z0z.ws-eu97.gitpod.io']
 else:    
     ALLOWED_HOSTS = ['my-first-deployed-django-app.herokuapp.com']
 
