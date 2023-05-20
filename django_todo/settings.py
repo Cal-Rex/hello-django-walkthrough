@@ -15,6 +15,7 @@ import dj_database_url
 if os.path.isfile("env.py"):
     import env
 
+
 development = os.environ.get('DEVELOPMENT', False)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -102,7 +103,7 @@ if development:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'NAME': os.path.join(BASE_DIR,'db.sqlite3'),
         }
     }
 else:
