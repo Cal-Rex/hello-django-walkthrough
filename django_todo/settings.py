@@ -15,6 +15,8 @@ import dj_database_url
 if os.path.isfile("env.py"):
     import env
 
+development = os.environ.get('DEVELOPMENT', False)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-ucsd=yf3kp7+2tmyc2g$hxu_&)k=v+yd717k#7#^0ob6l))8)g')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = development
 
 # allowed host is the domain name of the project, in this instance, 
 # it is the site that will host the project on heroku, 
@@ -41,7 +43,11 @@ DEBUG = True
 # alternative ALLOWED HOSTS that pull from os and not from code
 # HEROKU_NAME's value is the url the app runs from via heroku, it's listed as a key value pair in the config vars
 # to make it work
-ALLOWED_HOSTS = ['my-first-deployed-django-app.herokuapp.com']
+# ___________________________________________________________
+if development:
+    ALLOWED_HOSTS = ['8000-calrex-hellodjangowalkt-aa1kifn3z0z.ws-eu97.gitpod.io/']
+else:    
+    ALLOWED_HOSTS = ['my-first-deployed-django-app.herokuapp.com']
 
 # Application definition
 # any apps created have to be listed in this list variable!
@@ -87,23 +93,23 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# Heroku-deployed database
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
-
+if development:
 # _______________________________________________
 # Old sqlite3 database used for development, 
 # commented out now that we have external
 # database
 # _______________________________________________
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+# Heroku-deployed database
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
