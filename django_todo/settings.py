@@ -15,7 +15,12 @@ import dj_database_url
 if os.path.isfile("env.py"):
     import env
 
-
+# DEBUG can be automaticaly set to true or false by using the following method:
+# in gitpod, go to workspaces, then settings and add a variable called DEVELOPMENT
+# give it the value of True
+# then create the code below, which thanks to the code above. if an environment is being imported
+# from an env.py (in this case, the heroku app setting would be classed as env.py through config vars)
+# the config vars dont specify DEVELOPMENT, so the code below makes development the value of false.
 development = os.environ.get('DEVELOPMENT', False)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,9 +35,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # _____________________________________________________________________
 # sets the secret key at operating system level, instead of in the code
 # the second paramter is used if there is no SECRET_KEY specified in env.py
+# or the gitpod workspace settings
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
+# see development variable above
 DEBUG = development
 
 # allowed host is the domain name of the project, in this instance, 
