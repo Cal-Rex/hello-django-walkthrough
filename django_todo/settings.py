@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # _____________________________________________________________________
 # sets the secret key at operating system level, instead of in the code
 # the second paramter is used if there is no SECRET_KEY specified in env.py
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-ucsd=yf3kp7+2tmyc2g$hxu_&)k=v+yd717k#7#^0ob6l))8)g')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
@@ -46,7 +46,7 @@ DEBUG = development
 # to make it work
 # ___________________________________________________________
 if development:
-    ALLOWED_HOSTS = ['8000-calrex-hellodjangowalkt-aa1kifn3z0z.ws-eu97.gitpod.io']
+    ALLOWED_HOSTS = ['localhost']
 else:    
     ALLOWED_HOSTS = ['my-first-deployed-django-app.herokuapp.com']
 
